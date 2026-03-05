@@ -7,14 +7,7 @@ export const MovieSearch = () => {
     const [selectedMovie, setSelectedMovie] = React.useState(null);
     useEffect(() => {
         async function fetchData() {
-            const options = {
-                method: 'GET',
-                headers: {
-                    accept: 'application/json',
-                    Authorization: `Bearer ${process.env.TMDB_KEY}`
-                }
-            };
-            const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${APIcall}&include_adult=false&language=en-US&page=1`, options);
+            const response = await fetch(`/api/tmdb?query=${APIcall}`);
             if (response.ok) {
                 const movies = await response.json();
                 if (movies.results) {
