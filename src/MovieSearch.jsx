@@ -11,7 +11,7 @@ export const MovieSearch = () => {
                 method: 'GET',
                 headers: {
                     accept: 'application/json',
-                    Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`
+                    Authorization: `Bearer ${process.env.TMDB_TOKEN}`
                 }
             };
             const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${APIcall}&include_adult=false&language=en-US&page=1`, options);
